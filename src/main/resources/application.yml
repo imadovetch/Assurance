@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: dev
+  cloud:
+    vault:
+      enabled: false

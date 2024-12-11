@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: insurance_postgres
+    environment:
+      POSTGRES_USER: imad
+      POSTGRES_PASSWORD: 1111
+      POSTGRES_DB: insurance_db
+    ports:
+      - "5438:5438"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - insurance-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com  # Replace with your preferred admin email
+      PGADMIN_DEFAULT_PASSWORD: admin123  # Replace with your preferred admin password
+    ports:
+      - "8089:80"  # Expose pgAdmin web UI on port 8080
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - insurance-network
+
+volumes:
+  postgres_data:
+    driver: local
+  pgadmin_data:
+    driver: local
+
+networks:
+  insurance-network:
+    driver: bridge

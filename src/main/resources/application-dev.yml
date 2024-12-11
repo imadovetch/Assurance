@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/insurance_db_Dev
+    username: postgres
+    password: 1111
+  jpa:
+    hibernate:
+      ddl-auto: update
+  server:
+    port: 8081

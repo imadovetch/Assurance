@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5438/insurance_db
+    username: imad
+    password: 1111
+  jpa:
+    hibernate:
+      ddl-auto: none
+  server:
+    port: 8080
