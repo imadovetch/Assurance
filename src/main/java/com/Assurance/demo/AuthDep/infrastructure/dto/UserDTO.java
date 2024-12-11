@@ -1,6 +1,7 @@
 package com.Assurance.demo.AuthDep.infrastructure.dto;
 
 import jakarta.validation.constraints.*;
+import java.time.LocalDate;
 
 public record UserDTO(
 
@@ -12,14 +13,18 @@ public record UserDTO(
         @Email(message = "Email should be valid")
         String email,
 
+        @NotBlank(message = "password cannot be empty")
+        @Size(min = 8)
+        String password,
+
         @NotBlank(message = "Phone number cannot be empty")
         String phoneNumber,
 
         @NotBlank(message = "Address cannot be empty")
         String adresse,
 
-        @NotNull(message = "Age cannot be null")
-        @Min(value = 0, message = "Age must be at least 0")
-        Integer age
+        @NotNull(message = "BirthDate cannot be null")
+        @Past(message = "BirthDate must be a date in the past")
+        LocalDate birthDate
 ) {
 }

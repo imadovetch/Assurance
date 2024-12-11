@@ -4,11 +4,14 @@ import com.Assurance.demo.AuthDep.infrastructure.Entities.App_User;
 import com.Assurance.demo.AuthDep.infrastructure.dto.UserDTO;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
     UserDTO userToUserDTO(App_User user) ;
+
+    @Mapping(source = "birthDate", target = "birthDate")
     App_User userDTOToUser(UserDTO userDTO);
 
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);

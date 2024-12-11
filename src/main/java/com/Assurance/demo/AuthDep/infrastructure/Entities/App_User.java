@@ -1,16 +1,18 @@
 package com.Assurance.demo.AuthDep.infrastructure.Entities;
 
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
+
+import java.time.LocalDate;
 
 @Data
 @Entity
 public class App_User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
+
     @NotBlank(message = "Name cannot be empty")
     @Column(nullable = false)
     private String name;
@@ -33,7 +35,8 @@ public class App_User {
     @Column(nullable = false)
     private String adresse;
 
-    @NotNull(message = "Age cannot be null")
-    @Min(value = 0, message = "Age must be at least 0")
-    private Integer age;
+    @NotNull(message = "BirthDate cannot be null")
+    @Past(message = "BirthDate must be a date in the past")
+    @Column(nullable = true)
+    private LocalDate birthDate;
 }
