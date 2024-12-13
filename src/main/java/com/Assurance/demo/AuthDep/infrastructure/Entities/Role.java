@@ -1,4 +1,4 @@
-package com.PigeonSkyRace.Auth.Entity.Role;
+package com.Assurance.demo.AuthDep.infrastructure.Entities;
 
 
 import jakarta.persistence.*;

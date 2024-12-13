@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UseRepository extends JpaRepository<App_User, Integer> {
 
+    App_User findByName(String username);
 }

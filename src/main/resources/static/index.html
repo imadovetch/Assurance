@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi Page</title>
+</head>
+<body>
+<h1>Hi</h1>
+<p id="userInfo">Loading user information...</p>
+
+<script>
+    // Make a fetch request to the /showuser route
+    fetch('/showuser')
+        .then(response => response.text())  // We expect a text response (user details)
+        .then(data => {
+            // Display the response data (user details) in the HTML
+            document.getElementById("userInfo").textContent = data;
+        })
+        .catch(error => {
+            console.error('Error fetching user:', error);
+            document.getElementById("userInfo").textContent = 'Error fetching user.';
+        });
+</script>
+</body>
+</html>
