@@ -24,6 +24,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
+                    // Ensure mvnw has executable permissions
+                    sh 'chmod +x ./mvnw'
                     // Run the tests (e.g., for a Maven project)
                     sh './mvnw clean test'  // For Maven projects, replace with appropriate command
                 }
